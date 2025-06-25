@@ -1,5 +1,11 @@
 #!/usr/bin/env node
 
+// Windows compatibility: Force UTF-8 encoding for proper emoji display
+if (process.platform === 'win32') {
+  process.stdout.setEncoding('utf8');
+  process.stderr.setEncoding('utf8');
+}
+
 import cors from 'cors';
 import 'dotenv/config';
 import express, { NextFunction, Request, Response } from 'express';
@@ -531,8 +537,18 @@ process.on('SIGINT', () => {
   process.exit(0);
 });
 
-// Démarrer le serveur si ce fichier est exécuté directement
-if (import.meta.url === `file://${process.argv[1]}`) {
+// Démarrer le serveur si ce fichier est exécuté directement - Fixed for cross-platform compatibility
+const isMainModule = () => {
+  try {
+    const currentPath = fileURLToPath(import.meta.url);
+    const mainPath = process.argv[1];
+    return currentPath === mainPath || currentPath.endsWith(path.basename(mainPath));
+  } catch {
+    return true; // Fallback to always start on error
+  }
+};
+
+if (isMainModule()) {
   startServer();
 }
 

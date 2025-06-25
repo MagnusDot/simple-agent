@@ -1,5 +1,11 @@
 #!/usr/bin/env node
 
+// Windows compatibility: Force UTF-8 encoding for proper emoji display
+if (process.platform === 'win32') {
+  process.stdout.setEncoding('utf8');
+  process.stderr.setEncoding('utf8');
+}
+
 import chalk from 'chalk';
 import { Command } from 'commander';
 import { config as dotenvConfig } from 'dotenv';
@@ -614,8 +620,18 @@ program
   .option('--no-context', 'Désactiver le suivi du contexte de conversation')
   .action(chatCommand);
 
-// Make the script executable
-if (import.meta.url === `file://${process.argv[1]}`) {
+// Make the script executable - Fixed for cross-platform compatibility
+const isMainModule = () => {
+  try {
+    const currentPath = fileURLToPath(import.meta.url);
+    const mainPath = process.argv[1];
+    return currentPath === mainPath || currentPath.endsWith(path.basename(mainPath));
+  } catch {
+    return true; // Fallback to always parse on error
+  }
+};
+
+if (isMainModule()) {
   program.parse();
 }
 

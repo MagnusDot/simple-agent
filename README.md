@@ -2,6 +2,17 @@
 
 Un CLI et serveur JavaScript/TypeScript pour tester et interagir avec des agents IA.
 
+## 🪟 Utilisation sur Windows
+
+**Pour les utilisateurs Windows**, veuillez consulter le fichier [.win/WINDOWS-README.md](.win/WINDOWS-README.md) qui contient des instructions spécifiques et des scripts optimisés pour Windows.
+
+**Solutions rapides Windows :**
+- **Installation automatique** : `.\.win\install-windows.ps1`
+- Scripts PowerShell : `.\.win\cli.ps1` et `.\.win\server.ps1`
+- Scripts Batch : `.win\cli.bat` et `.win\server.bat`
+- Scripts npm : `npm run cli:win` et `npm run server:win`
+- Diagnostic : `.\.win\diagnostic-windows.ps1`
+
 ## 📦 Installation
 
 ```bash

@@ -7,9 +7,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cli": "tsx CLI/cli.mts",
+    "cli:win": "npx tsx CLI/cli.mts",
     "server": "tsx serveur/server.mts",
+    "server:win": "npx tsx serveur/server.mts",
     "server-simple": "tsx serveur/server-simple.mts",
-    "dev": "tsx --watch serveur/server.mts"
+    "server-simple:win": "npx tsx serveur/server-simple.mts",
+    "dev": "tsx --watch serveur/server.mts",
+    "dev:win": "npx tsx --watch serveur/server.mts",
+    "test-server": "tsx .win/test-server.mts"
   },
   "bin": {
     "agent-cli": "./cli.mts"
