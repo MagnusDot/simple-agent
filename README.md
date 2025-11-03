@@ -181,13 +181,13 @@ Le serveur supporte les Server-Sent Events avec les types d'événements suivant
 ### Structure du projet
 
 ```
-myges-agent/
-├── agent.mts              # Agent LangChain original
-├── cli.mts               # CLI pour tester les agents
-├── server.mts            # Serveur Express.js
-├── agents_config.json    # Configuration des agents
-├── package.json          # Dépendances et scripts
-└── README.md            # Documentation
+agent-example/
+├── Agents/Agent/Agent.mts  # Agent LangChain
+├── CLI/cli.mts            # CLI pour tester les agents
+├── serveur/server.mts     # Serveur Express.js
+├── CLI/agents_config.json # Configuration des agents
+├── package.json           # Dépendances et scripts
+└── README.md              # Documentation
 ```
 
 ### Scripts disponibles

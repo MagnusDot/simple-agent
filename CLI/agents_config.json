@@ -2,9 +2,9 @@
   "api_url": "http://localhost:8080",
   "agents": [
     {
-      "id": "myges",
-      "name": "MyGES",
-      "description": "Agent spécialisé pour MyGES et les informations météo"
+      "id": "Agent",
+      "name": "Agent",
+      "description": "Agent spécialisé pour les informations météo"
     }
   ]
 } 

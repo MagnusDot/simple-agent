@@ -60,9 +60,9 @@ const activeGenerations: Map<string, boolean> = new Map();
 // Registre des agents - À remplir avec vos vrais agents
 const AVAILABLE_AGENTS: AgentConfig[] = [
   {
-    id: 'myges',
-    name: 'myges Agent',
-    description: 'Agent spécialisé dans myges'
+    id: 'Agent',
+    name: 'Agent',
+    description: 'Agent spécialisé dans les informations météo'
   },
   // Ajoutez vos autres agents ici...
 ];
@@ -169,8 +169,8 @@ class MockAgent implements IAgent {
 function createAgent(agentId: string): IAgent {
   // TODO: Remplacer par le chargement de vos vrais agents depuis le registre
   // Exemple:
-  // if (agentId === 'myges') {
-  //   return new mygesAgent(); // Votre vrai agent
+  // if (agentId === 'Agent') {
+  //   return new agent(); // Votre vrai agent
   // }
   
   console.log(`⚠️  Utilisation du MockAgent pour ${agentId}. Pour utiliser les vrais agents, utilisez server.mts à la place.`);
