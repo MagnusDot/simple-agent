@@ -5,6 +5,7 @@ import { createReactAgent } from "@langchain/langgraph/prebuilt";
 import { ChatOpenAI } from "@langchain/openai";
 import { loadAgentPrompt } from "./generate_prompt.mts";
 import { weather } from "./tools/weather.mts";
+import { add } from "./tools/add.mts";
 
 const agentPrompt = loadAgentPrompt('Agent');
 
@@ -23,6 +24,6 @@ const agentCheckpointer = new MemorySaver();
 export const agent = createReactAgent({
   prompt: agentPrompt,
   llm: agentModel,
-  tools: [weather],
+  tools: [weather, add],
   checkpointSaver: agentCheckpointer,
 });
