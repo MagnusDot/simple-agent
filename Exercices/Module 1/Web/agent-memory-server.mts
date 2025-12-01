@@ -179,7 +179,6 @@ app.listen(PORT, () => {
 ╠════════════════════════════════════════════════════════════╣
 ║  URL:      http://localhost:${PORT}                           ║
 ║  Endpoint: POST http://localhost:${PORT}/chat                 ║
-║  Health:   GET  http://localhost:${PORT}/health               ║
 ╚════════════════════════════════════════════════════════════╝
 
 Exemple de requête:
