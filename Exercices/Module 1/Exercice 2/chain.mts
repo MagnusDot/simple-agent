@@ -19,12 +19,15 @@ messages.forEach((m) => {
   console.log(`${type}: ${m.content}`);
 });
 
-// Modèle de chat
-if (!process.env.OPENAI_API_KEY) {
-  throw new Error("OPENAI_API_KEY n'est pas défini dans l'environnement");
-}
 
-const llm = new ChatOpenAI({ model: "gpt-4o" });
+const llm = new ChatOpenAI({
+  temperature: 0.5,
+  model: "dolphin3.0-llama3.1-8b", // ou le nom de votre modèle
+  configuration: {
+    baseURL: "http://localhost:1234/v1",
+    apiKey: "not-needed", // LMStudio ne nécessite pas de clé API réelle
+  }
+});
 const result = await llm.invoke(messages);
 console.log("\n=== Résultat du modèle ===");
 console.log("Type:", result.constructor.name);
