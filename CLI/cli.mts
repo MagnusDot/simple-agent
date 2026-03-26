@@ -614,8 +614,9 @@ program
   .option('--no-context', 'Désactiver le suivi du contexte de conversation')
   .action(chatCommand);
 
-// Make the script executable
-if (import.meta.url === `file://${process.argv[1]}`) {
+const executedFile = process.argv[1] ? path.resolve(process.argv[1]) : '';
+
+if (__filename === executedFile) {
   program.parse();
 }
 

@@ -536,8 +536,10 @@ process.on('SIGINT', () => {
 });
 
 // Démarrer le serveur si ce fichier est exécuté directement
-if (import.meta.url === `file://${process.argv[1]}`) {
+const executedFile = process.argv[1] ? path.resolve(process.argv[1]) : '';
+
+if (__filename === executedFile) {
   startServer();
 }
 
-export default app; 
+export default app;
